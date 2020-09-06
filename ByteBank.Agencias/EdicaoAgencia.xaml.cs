@@ -1,5 +1,6 @@
 ﻿using ByteBank.Agencias.DAL;
 using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -42,11 +43,29 @@ namespace ByteBank.Agencias
             btnOk.Click += okEventHandler;
             btnCancelar.Click += cancelarEventHandler;
 
+            txtNumero.TextChanged += ValidarCampoNulo;
+            txtNumero.TextChanged += ValidarSomenteDigito;
+
             txtNome.TextChanged += ValidarCampoNulo;
             txtDescricao.TextChanged += ValidarCampoNulo;
             txtEndereco.TextChanged += ValidarCampoNulo;
-            txtNumero.TextChanged += ValidarCampoNulo;
             txtTelefone.TextChanged += ValidarCampoNulo;
+        }
+
+        private void ValidarSomenteDigito(object sender, EventArgs e)
+        {
+            var txt = sender as TextBox;
+
+            Func<char, bool> verificaSeEhDigito = caractere =>
+            {
+                return char.IsDigit(caractere);
+            };
+
+            var todosCaracteresSaoDigitos = !string.IsNullOrEmpty(txt.Text) && txt.Text.All(verificaSeEhDigito);
+
+            txt.Background = todosCaracteresSaoDigitos
+                ? new SolidColorBrush(Colors.White)
+                : new SolidColorBrush(Colors.OrangeRed);
         }
 
         private void ValidarCampoNulo(object sender, EventArgs e)
