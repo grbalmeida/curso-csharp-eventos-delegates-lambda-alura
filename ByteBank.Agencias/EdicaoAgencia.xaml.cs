@@ -42,23 +42,21 @@ namespace ByteBank.Agencias
             btnOk.Click += okEventHandler;
             btnCancelar.Click += cancelarEventHandler;
 
-            txtNome.TextChanged += ConstruirDelegateValidacaoCampoNulo(txtNome);
-            txtDescricao.TextChanged += ConstruirDelegateValidacaoCampoNulo(txtDescricao);
-            txtEndereco.TextChanged += ConstruirDelegateValidacaoCampoNulo(txtEndereco);
-            txtNumero.TextChanged += ConstruirDelegateValidacaoCampoNulo(txtNumero);
-            txtTelefone.TextChanged += ConstruirDelegateValidacaoCampoNulo(txtTelefone);
+            txtNome.TextChanged += ValidarCampoNulo;
+            txtDescricao.TextChanged += ValidarCampoNulo;
+            txtEndereco.TextChanged += ValidarCampoNulo;
+            txtNumero.TextChanged += ValidarCampoNulo;
+            txtTelefone.TextChanged += ValidarCampoNulo;
         }
 
-        private TextChangedEventHandler ConstruirDelegateValidacaoCampoNulo(TextBox txt)
+        private void ValidarCampoNulo(object sender, EventArgs e)
         {
-            return (o, e) =>
-            {
-                var textoEstaVazio = string.IsNullOrEmpty(txt.Text);
+            var txt = sender as TextBox;
+            var textoEstaVazio = string.IsNullOrEmpty(txt.Text);
 
-                txt.Background = textoEstaVazio
-                    ? new SolidColorBrush(Colors.OrangeRed)
-                    : new SolidColorBrush(Colors.White);
-            };
+            txt.Background = textoEstaVazio
+                ? new SolidColorBrush(Colors.OrangeRed)
+                : new SolidColorBrush(Colors.White);
         }
 
         private void Fechar(object sender, EventArgs e) =>
