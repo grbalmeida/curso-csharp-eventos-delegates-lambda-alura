@@ -32,10 +32,7 @@ namespace ByteBank.Agencias
         private void AtualizarControles()
         {
             var okEventHandler = (RoutedEventHandler)btnOk_Click + Fechar;
-            var cancelarEventHandler =
-                (RoutedEventHandler)Delegate.Combine(
-                    (RoutedEventHandler)btnCancelar_Click,
-                    (RoutedEventHandler)Fechar);
+            var cancelarEventHandler = (RoutedEventHandler)btnCancelar_Click + Fechar;
 
             btnOk.Click += okEventHandler;
             btnCancelar.Click += cancelarEventHandler;
