@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ByteBank.Agencias"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Agências" Height="350" Width="525">
     <Canvas Name="container">
         <StackPanel Canvas.Top="15" Canvas.Left="290">
             <TextBlock FontWeight="Bold">Número</TextBlock>
@@ -19,6 +19,12 @@
             <TextBlock FontWeight="Bold">Endereço</TextBlock>
             <TextBlock Name="txtEndereco"></TextBlock>
         </StackPanel>
+        <Button Content="Editar"
+                Width="75"
+                Canvas.Left="350"
+                Canvas.Top="289"
+                Click="btnEditar_Click"
+                Name="btnEditar" />
         <Button Content="Excluir"
                 Width="75"
                 Canvas.Left="432"
