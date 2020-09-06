@@ -56,12 +56,7 @@ namespace ByteBank.Agencias
         {
             var txt = sender as TextBox;
 
-            Func<char, bool> verificaSeEhDigito = caractere =>
-            {
-                return char.IsDigit(caractere);
-            };
-
-            var todosCaracteresSaoDigitos = !string.IsNullOrEmpty(txt.Text) && txt.Text.All(verificaSeEhDigito);
+            var todosCaracteresSaoDigitos = !string.IsNullOrEmpty(txt.Text) && txt.Text.All(char.IsDigit);
 
             txt.Background = todosCaracteresSaoDigitos
                 ? new SolidColorBrush(Colors.White)
