@@ -40,8 +40,19 @@ namespace ByteBank.Agencias
 
         private void btnEditar_Click(object sender, RoutedEventArgs e)
         {
-            var janelaEdicao = new EdicaoAgencia();
-            janelaEdicao.ShowDialog();
+            var agenciaAtual = (Agencia)lstAgencias.SelectedItem;
+            var janelaEdicao = new EdicaoAgencia(agenciaAtual);
+            
+            var resultado = janelaEdicao.ShowDialog().Value;
+
+            if (resultado)
+            {
+                // Usuário clicou em OK
+            }
+            else
+            {
+                // Usuário clicou em Cancelar
+            }
         }
 
         private void AtualizarListaDeAgencias()

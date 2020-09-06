@@ -23,7 +23,6 @@
                 Width="75"
                 Canvas.Left="350"
                 Canvas.Top="289"
-                Click="btnEditar_Click"
                 Name="btnEditar" />
         <Button Content="Excluir"
                 Width="75"
