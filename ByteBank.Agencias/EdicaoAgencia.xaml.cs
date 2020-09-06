@@ -21,6 +21,14 @@ namespace ByteBank.Agencias
             _agencia = agencia ?? throw new ArgumentNullException(nameof(agencia));
             AtualizarCamposDeTexto();
             AtualizarControles();
+
+            ValidarCampoNulo(txtNumero, EventArgs.Empty);
+            ValidarSomenteDigito(txtNumero, EventArgs.Empty);
+
+            ValidarCampoNulo(txtNome, EventArgs.Empty);
+            ValidarCampoNulo(txtTelefone, EventArgs.Empty);
+            ValidarCampoNulo(txtEndereco, EventArgs.Empty);
+            ValidarCampoNulo(txtDescricao, EventArgs.Empty);
         }
 
         private void AtualizarCamposDeTexto()
