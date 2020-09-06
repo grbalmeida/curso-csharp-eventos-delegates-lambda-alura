@@ -19,5 +19,11 @@
             <TextBlock FontWeight="Bold">Endereço</TextBlock>
             <TextBlock Name="txtEndereco"></TextBlock>
         </StackPanel>
+        <Button Content="Excluir"
+                Width="75"
+                Canvas.Left="432"
+                Canvas.Top="289"
+                Click="btnExcluir_Click"
+                Name="btnExcluir" />
     </Canvas>
 </Window>

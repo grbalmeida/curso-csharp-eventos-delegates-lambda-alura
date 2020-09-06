@@ -39,5 +39,24 @@ namespace ByteBank.Agencias
                 lstAgencias.Items.Add(agencia);
             }
         }
+
+        private void btnExcluir_Click(object sender, RoutedEventArgs e)
+        {
+            var confirmacao =
+                MessageBox.Show(
+                    "Você deseja realmente excluir este item?",
+                    "Confirmação",
+                    MessageBoxButton.YesNo
+                );
+
+            if (confirmacao == MessageBoxResult.Yes)
+            {
+                // Excluir
+            }
+            else
+            {
+                // Não faz nada
+            }
+        }
     }
 }
