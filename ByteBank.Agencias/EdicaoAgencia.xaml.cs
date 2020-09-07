@@ -54,7 +54,7 @@ namespace ByteBank.Agencias
 
         private bool ValidarSomenteDigito(string texto)
         {
-            return !string.IsNullOrEmpty(texto) && texto.All(char.IsDigit);
+            return texto.All(char.IsDigit);
         }
 
         private bool ValidarCampoNulo(string texto)
