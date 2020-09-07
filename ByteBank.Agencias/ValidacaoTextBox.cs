@@ -3,7 +3,7 @@ using System.Windows.Media;
 
 namespace ByteBank.Agencias
 {
-    public delegate bool ValidacaoEventHandler(string texto);
+    public delegate void ValidacaoEventHandler(object sender, ValidacaoEventArgs e);
 
     public class ValidacaoTextBox : TextBox
     {
@@ -33,12 +33,14 @@ namespace ByteBank.Agencias
             if (_validacao != null)
             {
                 var listaValidacao = _validacao.GetInvocationList();
-
+                var eventArgs = new ValidacaoEventArgs(Text);
                 var ehValido = true;
 
                 foreach (ValidacaoEventHandler validacao in listaValidacao)
                 {
-                    if (!validacao(Text))
+                    validacao(this, eventArgs);
+
+                    if (!eventArgs.EhValido)
                     {
                         ehValido = false;
                         break;

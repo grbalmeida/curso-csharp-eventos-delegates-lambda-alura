@@ -52,14 +52,14 @@ namespace ByteBank.Agencias
             txtTelefone.Validacao += ValidarCampoNulo;
         }
 
-        private bool ValidarSomenteDigito(string texto)
+        private void ValidarSomenteDigito(object sender, ValidacaoEventArgs e)
         {
-            return texto.All(char.IsDigit);
+            e.EhValido = e.Texto.All(char.IsDigit);
         }
 
-        private bool ValidarCampoNulo(string texto)
+        private void ValidarCampoNulo(object sender, ValidacaoEventArgs e)
         {
-            return !string.IsNullOrEmpty(texto);
+            e.EhValido = !string.IsNullOrEmpty(e.Texto);
         }
 
         private void Fechar(object sender, EventArgs e) =>
